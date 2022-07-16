@@ -160,3 +160,6 @@ process.on("multipleResolves", (type, promise, reason) => {
 client.login(process.env.token)
   .then((r) => console.log(`Successfully logged in as ${client.user.tag}!`))
   .catch((e) => console.log(e));
+
+
+  //Never gonna give you up, never gonna let you down, never gonna run around and desert you. Never gonna make you cry, never gonna say goodbye, never gonna tell a lie and hurt you.

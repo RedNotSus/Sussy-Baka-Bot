@@ -1,4 +1,4 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js') // Import the discord.js module
 module.exports = {
   name: "botinfo",
   description: "Bots informational page",
@@ -16,6 +16,6 @@ module.exports = {
     .setColor()
     .setTimestamp()
   message.channel.send({ embeds: [joinMessageEmbed] });
-  },
+  },  
 };
 

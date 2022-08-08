@@ -31,6 +31,10 @@
 [![Run on Replit](https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/replit.svg)](https://replit.com/github/rednotsus/sussy-baka-bot)
 [![Deploy to Heroku](https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/heroku.svg)](https://heroku.com/deploy/?template=https://github.com/RedNotSus/Sussy-Baka-Bot)
 
+
+## **Project Activity**
+![Alt](https://repobeats.axiom.co/api/embed/a119c4dca03c8390ddd008b6a87726a67c6da335.svg "Repobeats analytics image")
+
 ## **Frameworks/Languages Used:**
 
 - **[Node.js](https://nodejs.org/en/)**

@@ -137,7 +137,7 @@ process.on("unhandledExceptionMonitor", (err) => {
   console.error("Unhandled Promise Exception (Monitor):\n", err);
 });
 
-client.login('MTAwNDgyODcwNTIwNzYxNTYwMA.G9-mnz.o8onJAYE02yDrZ06zOHBqA-Z9U5NEG_jWyiuLM').catch((e) => console.log(e));
+client.login(process.env.token).catch((e) => console.log(e));
 
 
   //Never gonna give you up, never gonna let you down, never gonna run around and desert you. Never gonna make you cry, never gonna say goodbye, never gonna tell a lie and hurt you.

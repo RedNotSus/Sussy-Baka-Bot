@@ -1,4 +1,4 @@
-const { afk } = require("../../Collections/afk")
+const { afk } = require("../../Collections/afk");
 
 
 module.exports = {
@@ -9,6 +9,6 @@ module.exports = {
     const authorsMessage = args.join(" ") || "No message provided.";
 
     afk.set(message.author.id, [Date.now(), authorsMessage]);
-    message.reply(`Done setting your status to afk...`)
+    message.reply(`Done setting your status to afk...`);
   },
 };

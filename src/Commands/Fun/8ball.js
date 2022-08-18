@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 module.exports = {
   name: "8ball",
   description: "Answer your question with a random answer",
@@ -30,14 +30,14 @@ module.exports = {
     ];
     const a = array[Math.floor(Math.random() * array.length)];
 
-    const succes = new MessageEmbed()
+    const succes = new EmbedBuilder()
       .setTitle("**ANSWERED**")
-      .setColor("GREEN")
+      .setColor("Green")
       .setTimestamp()
-      .setFooter(client.user.tag, client.user.displayAvatarURL())
+      .setFooter({ text: client.user.tag, iconURL: client.user.displayAvatarURL() })
       .setDescription("🎱 Your question has been answered!")
-      .addField("Question:", `${q}.`)
-      .addField("Answer:", `${a}.`);
+      .addFields({ name: "Question:", value: `${q}.` })
+      .addFields({ name: "Answer:", value: `${a}.` });
 
     if (!q) {
       return message.reply("What are you going to ask me?").then((msg) => {

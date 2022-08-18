@@ -1,7 +1,7 @@
-const discord = require('discord.js')
+const discord = require('discord.js');
 const fetch = require('node-fetch');
 
-let key = 'e'
+let key = 'e'; // replace with ur chatbot key
 
 module.exports = {
   name: "chatbot",
@@ -10,16 +10,16 @@ module.exports = {
   run: async (client, message, args) => {
     if (!args[0]) return message.reply("Please provide text!");
 
-  fetch(`http://api.brainshop.ai/get?bid=167685&key=${key}&uid=1&msg=${args.join("+")}`)
-  .then(res => res.json())
-  .then(data => {
-   let embed = new discord.MessageEmbed()
-   .setDescription(data.cnt)
-   .setColor("GREEN");
+    fetch(`http://api.brainshop.ai/get?bid=167685&key=${key}&uid=1&msg=${args.join("+")}`)
+      .then(res => res.json())
+      .then(data => {
+        let embed = new discord.EmbedBuilder()
+          .setDescription(data.cnt)
+          .setColor("Green");
 
-   message.channel.send({
-     embeds: [embed]
-   })      
-  });
+        message.channel.send({
+          embeds: [embed]
+        });
+      });
   },
 };

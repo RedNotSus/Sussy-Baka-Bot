@@ -1,43 +1,43 @@
 const Discord = require("discord.js");
 
-exports.run = (client, message, args) =>{
-     let member = message.mentions.members.first()
-     
-     if (member){
-        let gayrateEmbed = new Discord.MessageEmbed()
-     .setTitle('gay r8 machine')
-     .setColor("#347cd4")
-     .setDescription(`${member.user.tag} is ${Math.floor(Math.random() * 100) + 1}% gay 🏳️‍🌈`)
+exports.run = (client, message, args) => {
+   let member = message.mentions.members.first();
 
-        message.channel.send({ embeds: [gayrateEmbed] })
+   if (member) {
+      let gayrateEmbed = new Discord.EmbedBuilder()
+         .setTitle('gay r8 machine')
+         .setColor("#347cd4")
+         .setDescription(`${member.user.tag} is ${Math.floor(Math.random() * 100) + 1}% gay 🏳️‍🌈`);
 
-        return;
-     }
+      message.channel.send({ embeds: [gayrateEmbed] });
 
-     if (args[0]){
-        let newEmbed2 = new Discord.MessageEmbed()
-        .setTitle('gay r8 machine')
-        .setColor("#347cd4")
-        .setDescription(`${args[0]} is ${Math.floor(Math.random() * 100) + 1}% gay 🏳️‍🌈`)
+      return;
+   }
 
-        message.channel.send({ embeds: [newEmbed2] })
+   if (args[0]) {
+      let newEmbed2 = new Discord.EmbedBuilder()
+         .setTitle('gay r8 machine')
+         .setColor("#347cd4")
+         .setDescription(`${args[0]} is ${Math.floor(Math.random() * 100) + 1}% gay 🏳️‍🌈`);
 
-        return;
-     }
+      message.channel.send({ embeds: [newEmbed2] });
 
-     if (!args[0]){
-        let newEmbed = new Discord.MessageEmbed()
+      return;
+   }
 
-        .setTitle('gay r8 machine')
-        .setColor("#347cd4")
-        .setDescription(`You are ${Math.floor(Math.random() * 100) + 1}% gay 🏳️‍🌈`)
+   if (!args[0]) {
+      let newEmbed = new Discord.EmbedBuilder()
 
-        message.channel.send({ embeds: [newEmbed] })
+         .setTitle('gay r8 machine')
+         .setColor("#347cd4")
+         .setDescription(`You are ${Math.floor(Math.random() * 100) + 1}% gay 🏳️‍🌈`);
 
-        return;
+      message.channel.send({ embeds: [newEmbed] });
 
-     }
+      return;
 
-}
+   }
 
-exports.name = "gayrate"
+};
+
+exports.name = "gayrate";

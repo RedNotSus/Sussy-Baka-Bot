@@ -1,6 +1,4 @@
-const Discord = require("discord.js");
-const { MessageEmbed, MessageActionRow, MessageButton, MessageSelectMenu, MessageAttachment } = require("discord.js");
-const config = 
+const { EmbedBuilder } = require("discord.js");
 module.exports = {
 	name: "eval",
 	category: "Dev only",
@@ -13,11 +11,11 @@ module.exports = {
 	 * @returns {Promise<*>}
 	 */
 	run: async (client, message, args) => {
-		const notowner = new MessageEmbed()
+		const notowner = new EmbedBuilder()
 			.setDescription("Only the developers of cheeku can use this command!")
-			.setColor("DARK_ORANGE");
+			.setColor("DarkOrange");
 
-   if(authorid !== "735641273477890178") return message.channel.send({ embeds: [notowner] });
+		if (message.member.id !== "735641273477890178") return message.channel.send({ embeds: [notowner] });
 
 		const clean = async text => {
 			if (typeof text === "string")
@@ -44,10 +42,10 @@ module.exports = {
 
 			client.channels.cache.get("957276004114636842").send({
 				embeds: [
-					new MessageEmbed()
+					new EmbedBuilder()
 						.setTitle("New Eval!")
-						.addField("Executor", `${message.author.tag} | ${message.author.id} | <@!${message.author.id}>`)
-						.addField("Input", `\`\`\`js\n${code}\n\`\`\``),
+						.addFields({ name: "Executor", value: `${message.author.tag} | ${message.author.id} | <@!${message.author.id}>` })
+						.addFields({ name: "Input", value: `\`\`\`js\n${code}\n\`\`\`` }),
 				],
 			});
 			let evaled = await clean(eval(evalCode));
@@ -62,19 +60,19 @@ module.exports = {
 			output = output.length > 1024 ? "```fix\nLarge Output\n```" : output;
 			// So, we'll have to filter the output of client.token variable in the output, search for it, and replace it with [Something important]
 			output = output.replace(new RegExp(client.token, "g"), "[Something Important]");
-			const embed = new MessageEmbed()
+			const embed = new EmbedBuilder()
 				.setAuthor({ name: "Eval", iconURL: message.author.avatarURL() })
-				.addField("Input", `\`\`\`js\n${code}\n\`\`\``)
-				.addField("Output", output)
+				.addFields({ name: "Input", value: `\`\`\`js\n${code}\n\`\`\`` })
+				.addFields({ name: "Output", value: output })
 				.setColor("#00ffee")
 				.setTimestamp();
 			message.channel.send({ embeds: [embed] });
 		} catch (err) {
-			const errorEmb = new MessageEmbed()
+			const errorEmb = new EmbedBuilder()
 				.setAuthor({ name: "Eval", iconURL: message.author.avatarURL() })
 				.setColor(`#ff0000`)
-				.addField("Input", `\`\`\`js\n${code}\n\`\`\``)
-				.addField("Error", `\`\`\`js\n${err}\n\`\`\``);
+				.addFields({ name: "Input", value: `\`\`\`js\n${code}\n\`\`\`` })
+				.addFields({ name: "Error", value: `\`\`\`js\n${err}\n\`\`\`` });
 			message.channel.send({ embeds: [errorEmb] });
 		}
 	},

@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 
 module.exports = {
   name: "report",
@@ -9,10 +8,10 @@ module.exports = {
     if (!query)
       return message.reply("You need to specify what you are reporting!");
     const owner = await client.users.fetch("735641273477890178");
-    const reportEmbed = new Discord.MessageEmbed()
+    const reportEmbed = new Discord.EmbedBuilder()
       .setTitle("New Bug!")
       .setDescription(`A Bug has been found!\n\n**Author:** ${message.author.tag}\n**Bug:** ${query}`)
-      .setFooter("This bug was reported ")
+      .setFooter({ text: "This bug was reported" })
       .setTimestamp()
       .setColor("#90BF60");
     message.author.send("Your bug has been reported. Thanks for the report!");
@@ -20,4 +19,4 @@ module.exports = {
     message.delete();
   },
 };
-module.exports.name = "bug"
+module.exports.name = "bug";
